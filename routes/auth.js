@@ -30,7 +30,7 @@ router.get('/callback', function (req, res, next) {
       return next(err);
     }
     if (!user) {
-      console.log('HEY....');
+      console.log('User:', user, 'INFO:', info);
       return res.redirect('/login');
     }
     req.logIn(user, function (err) {
