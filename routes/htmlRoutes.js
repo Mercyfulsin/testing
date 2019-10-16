@@ -5,6 +5,7 @@ var db = require('../models');
 module.exports = function (app) {
   // Load index page
   app.get('/user', function (req, res) {
+    console.log("USER:", req.user);
     db.User.findAll({where: {
       auth_id: req.user.id
     }}).then(function (dbExamples) {
