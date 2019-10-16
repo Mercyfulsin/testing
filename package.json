@@ -2,6 +2,9 @@
   "name": "auth0-nodejs-webapp-sample-new-test",
   "version": "0.0.0",
   "private": true,
+  "engine": {
+    "node": "10.15.3"
+  },
   "scripts": {
     "start": "node app.js"
   },
