@@ -123,6 +123,7 @@ if (app.get('env') === 'development') {
 // Production error handler
 // No stacktraces leaked to user
 app.use(function (err, req, res, next) {
+  console.log(err);
   res.status(err.status || 500);
   res.render('404', {
     message: err.message,
