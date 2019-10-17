@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var dotenv = require('dotenv');
 var passport = require('passport');
+var FileStore = require('session-file-store')(session);
 var Auth0Strategy = require('passport-auth0');
 var flash = require('connect-flash');
 var userInViews = require('./lib/middleware/userInViews');
@@ -65,10 +66,11 @@ app.engine(
 app.set('view engine', 'handlebars');
 // config express-session
 var sess = {
+  store: new FileStore(),
   secret: process.env.SESS_SECRET,
   cookie: {},
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 };
 
 if (app.get('env') === 'production') {
